@@ -8,48 +8,38 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Mon Application',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: WelcomeScreen(),
-    );
-  }
-}
-
-class WelcomeScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Écran de bienvenue'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                // Action pour le bouton "Invité"
-                // À définir selon les besoins
-              },
-              child: Text('Invité'),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Mon Application'),
+        ),
+        body: AspectRatio(
+          aspectRatio: 9 / 16,
+          child: Container(
+            color: Colors.white,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                RaisedButton(
+                  onPressed: () {
+                    // Action du bouton "Invité"
+                  },
+                  child: Text('Invité'),
+                ),
+                RaisedButton(
+                  onPressed: () {
+                    // Action du bouton "Se connecter"
+                  },
+                  child: Text('Se connecter'),
+                ),
+                RaisedButton(
+                  onPressed: () {
+                    // Action du bouton "S'inscrire"
+                  },
+                  child: Text("S'inscrire"),
+                ),
+              ],
             ),
-            ElevatedButton(
-              onPressed: () {
-                // Action pour le bouton "Se connecter"
-                // À définir selon les besoins
-              },
-              child: Text('Se connecter'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                // Action pour le bouton "S'inscrire"
-                // À définir selon les besoins
-              },
-              child: Text("S'inscrire"),
-            ),
-          ],
+          ),
         ),
       ),
     );
