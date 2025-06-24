@@ -19,7 +19,12 @@ public class CharChain {
      * StringBuilder / StringBuffer (peut varier) : muable (contenu modifiable)
      *     > length() longueur
      *     > capacity() espace aloué en mémoire (elle change en fonction de ce qu'il y a dedans)
+     *     > append([str]), comme python, on ajoute des caractères
+     *     > insert([index],[str]) pareil mais s'ajoute à l'index
      * 
+     * Monothreadé : on manipule 1 seul thread (une route)
+     * Multi-threadé : plusieurs threads (plusieurs routes)
+     * sBuilder est Monothreadé (asynchrone) et sBuffer est Multi-threadé (synchronisée, thread-safe (on s'assure de l'ordre)).     * 
      */
 
     public static void main(String[] args) {
@@ -47,10 +52,13 @@ public class CharChain {
         while(st.hasMoreTokens())
             System.out.println(st.nextToken()); //Donne chaque bout des parties
 
-        StringBuilder sBuilder = new StringBuilder();
+        StringBuilder sBuilder = new StringBuilder("Bonjour");
 
         System.out.println(sBuilder.capacity());
         System.out.println(sBuilder.length());
+        
+        sBuilder.append("tout le monde");
+        System.out.println(sBuilder); //On obtient les mêmes résultats avec sBuilder et sBuffer
     
     }
 }
